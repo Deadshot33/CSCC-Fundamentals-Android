@@ -13,7 +13,7 @@ public class Main {
 
     // convert from fahrenheit to celsius
     static double fahrenheit2Celsius(double fahrenheit){
-        double celsius = 9.0/5 *  (fahrenheit - 32);
+        double celsius = 5.0/9 *  (fahrenheit - 32);
         return celsius;
     }
 
@@ -34,6 +34,7 @@ public class Main {
     }
     public static void main(String[] args){
 
+        // declarations
         double fahrenheit;
         double temperature;
 
