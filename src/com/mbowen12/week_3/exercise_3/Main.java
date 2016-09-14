@@ -11,35 +11,38 @@ import java.util.Scanner;
 
 public class Main {
 
-    // convert from celsius to fahrenheit
-    static double Celsius2Fahrenheit(double celsius){
-        double fahrenheit = 9.0/5 * celsius + 32;
-        return fahrenheit;
+    // convert from fahrenheit to celsius
+    static double fahrenheit2Celsius(double fahrenheit){
+        double celsius = 9.0/5 *  (fahrenheit - 32);
+        return celsius;
     }
 
     // displays temperatures
-    static void displayTemp(double celsius, double fahrenheitTemp){
-        System.out.println("The temperature of " + celsius +
-                " degrees celsius converted is " + fahrenheitTemp + " degrees.");
+    static void displayTemp(double temperature, double celsius){
+        System.out.println("The temperature of " + temperature +
+                " degrees celsius converted is " + celsius + " degrees.");
     }
 
     // gets temperature from user
-    static double getCelsius(){
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a temperature in celsius: ");
-        double newCelsius = input.nextDouble();
-        return newCelsius;
+    static double getTemperature(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a temperature in fahrenheit: ");
+        String input = scanner.nextLine();
+        double fahrenheit = Double.parseDouble(input);
+        return fahrenheit;
 
     }
     public static void main(String[] args){
 
-        double celsius;
-        double fahrenheitTemp;
+        double fahrenheit;
+        double temperature;
 
-        celsius = getCelsius();
-        fahrenheitTemp = Celsius2Fahrenheit(celsius);
-        displayTemp(celsius, fahrenheitTemp);
-
+        fahrenheit = getTemperature();
+        while(fahrenheit >= -460){
+            temperature = fahrenheit2Celsius(fahrenheit);
+            displayTemp(fahrenheit, temperature);
+            fahrenheit = getTemperature();
+        }
 
 
     }
